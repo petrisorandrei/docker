@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="catsvsdogs">
+  <head>
+    <meta charset="utf-8">
+    <title>Cats vs Dogs -- Result</title>
+    <base href="/index.html">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="keywords" content="docker-compose, docker, stack">
+    <meta name="author" content="Docker">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-controller="statsCtrl">
+    <p class="MyButton"><a href="/" onclick="javascript:event.target.port=5002">Result vote 1</a></p>
+    <p class="MyButton"><a href="/" onclick="javascript:event.target.port=5001">Result vote 2</a></p>
+    <p class="MyButton"><a href="/" onclick="javascript:event.target.port=5003">Vote 1</a></p>
+    <p class="MyButton"><a href="/" onclick="javascript:event.target.port=5000">Vote 2</a></p>
+
+    <div id="result">
+      <span ng-if="total == 0">No votes yet</span>
+      <span ng-if="total == 1">{{total}} vote</span>
+      <span ng-if="total >= 2">{{total}} votes</span>
+    </div>
+    <script src="socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
